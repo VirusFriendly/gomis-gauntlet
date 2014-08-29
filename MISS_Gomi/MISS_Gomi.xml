@@ -1,0 +1,973 @@
+<mission version="1.60">
+<start>
+<big_message title="Gomi's Gauntlet" subtitle1="written by Eric Gragsone"/>
+<create type="player" x="50000" y="0" z="90000" name="UAS Potato"/>
+
+<create type="station" raceKeys="friendly" hullKeys="Civilian Base" x="96374" y="" z="88118" name="ISC 1831"/>
+<create type="mines" count="10" startAngle="-30" endAngle="30" startX="96374" startY="" startZ="88118" radius="6000"/>
+<create type="mines" count="10" startAngle="-30" endAngle="30" startX="96374" startY="" startZ="88118" radius="5500"/>
+<create type="mines" count="10" startAngle="-30" endAngle="30" startX="96374" startY="" startZ="88118" radius="5000"/>
+<create type="mines" count="10" startAngle="-30" endAngle="30" startX="96374" startY="" startZ="88118" radius="4500"/>
+<create type="mines" count="10" startAngle="-30" endAngle="30" startX="96374" startY="" startZ="88118" radius="4000"/>
+
+<create type="station" raceKeys="friendly" hullKeys="Command Base" x="60507" y="" z="83279" name="ISC 1846"/>
+<create type="mines" count="10" startAngle="-30" endAngle="30" startX="60507" startY="" startZ="83279" radius="4000"/>
+<create type="mines" count="10" startAngle="-30" endAngle="30" startX="60507" startY="" startZ="83279" radius="3500"/>
+<create type="mines" count="10" startAngle="-30" endAngle="30" startX="60507" startY="" startZ="83279" radius="3000"/>
+<create type="mines" count="10" startAngle="-30" endAngle="30" startX="60507" startY="" startZ="83279" radius="2500"/>
+<create type="mines" count="10" startAngle="-30" endAngle="30" startX="60507" startY="" startZ="83279" radius="2000"/>
+
+<create type="station" raceKeys="friendly" hullKeys="Industrial Base" x="37175" y="" z="85514" name="ISC 1853-A"/>
+<create type="mines" count="10" startAngle="-30" endAngle="30" startX="37175" startY="" startZ="85514" radius="6000"/>
+<create type="mines" count="10" startAngle="-30" endAngle="30" startX="37175" startY="" startZ="85514" radius="5500"/>
+<create type="mines" count="10" startAngle="-30" endAngle="30" startX="37175" startY="" startZ="85514" radius="5000"/>
+<create type="mines" count="10" startAngle="-30" endAngle="30" startX="37175" startY="" startZ="85514" radius="4500"/>
+<create type="mines" count="10" startAngle="-30" endAngle="30" startX="37175" startY="" startZ="85514" radius="4000"/>
+
+<create type="station" raceKeys="friendly" hullKeys="Science Base" x="2884" y="" z="85885" name="ISC 1872"/>
+<create type="mines" count="10" startAngle="-30" endAngle="30" startX="2884" startY="" startZ="85885" radius="6000"/>
+<create type="mines" count="10" startAngle="-30" endAngle="30" startX="2884" startY="" startZ="85885" radius="5500"/>
+<create type="mines" count="10" startAngle="-30" endAngle="30" startX="2884" startY="" startZ="85885" radius="5000"/>
+<create type="mines" count="10" startAngle="-30" endAngle="30" startX="2884" startY="" startZ="85885" radius="4500"/>
+<create type="mines" count="10" startAngle="-30" endAngle="30" startX="2884" startY="" startZ="85885" radius="4000"/>
+
+<create type="nebulas" count="100" startX="50000" startY="" startZ="50000" radius="5000" randomRange="5000"/>
+<create type="asteroids" count="30" startX="50000" startY="" startZ="50000" radius="10000" startAngle="53" endAngle="63"/>
+<create type="asteroids" count="30" startX="50000" startY="" startZ="50000" radius="10000" startAngle="112" endAngle="117"/>
+<create type="asteroids" count="30" startX="50000" startY="" startZ="50000" radius="10000" startAngle="214" endAngle="236"/>
+
+<create type="nebulas" count="300" startX="50000" startY="" startZ="50000" radius="15000" randomRange="15000"/>
+<create type="asteroids" count="50" startX="50000" startY="" startZ="50000" radius="30000" startAngle="0" endAngle="32" randomRange="1000"/>
+<create type="asteroids" count="50" startX="50000" startY="" startZ="50000" radius="30000" startAngle="176" endAngle="216" randomRange="1000"/>
+<create type="asteroids" count="30" startX="50000" startY="" startZ="50000" radius="30000" startAngle="248" endAngle="251" randomRange="1000"/>
+<create type="asteroids" count="50" startX="50000" startY="" startZ="50000" radius="30000" startAngle="309" endAngle="328" randomRange="1000"/>
+
+<create type="nebulas" count="200" startX="50000" startY="" startZ="50000" radius="25000" randomRange="25000"/>
+<create type="asteroids" count="200" startX="50000" startY="" startZ="50000" radius="48000" startAngle="45" endAngle="135" randomRange="5000"/>
+<create type="asteroids" count="200" startX="50000" startY="" startZ="50000" radius="48000" startAngle="225" endAngle="315" randomRange="5000"/>
+
+<set_variable name="stage" value="1"/>
+<set_variable name="fleet1" value="1"/>
+<set_variable name="fleet2" value="1"/>
+<set_variable name="fleet3" value="1"/>
+<set_variable name="fleet4" value="1"/>
+<set_variable name="fleet5" value="1"/>
+<set_variable name="fleet6" value="1"/>
+
+</start>
+
+<!-- Re-spawn Timers -->
+
+<event>
+<if_timer_finished name="timer1"/>
+<if_variable name="fleet1" comparator="=" value="0"/>
+<set_variable name="fleet1" value="1"/>
+</event>
+
+<event>
+<if_timer_finished name="timer2"/>
+<if_variable name="fleet2" comparator="=" value="0"/>
+<set_variable name="fleet2" value="1"/>
+</event>
+
+<event>
+<if_timer_finished name="timer3"/>
+<if_variable name="fleet3" comparator="=" value="0"/>
+<set_variable name="fleet3" value="1"/>
+</event>
+
+<event>
+<if_timer_finished name="timer4"/>
+<if_variable name="fleet4" comparator="=" value="0"/>
+<set_variable name="fleet4" value="1"/>
+</event>
+
+<event>
+<if_timer_finished name="timer5"/>
+<if_variable name="fleet5" comparator="=" value="0"/>
+<if_variable name="stage" comparator="=" value="3"/>
+<set_variable name="fleet5" value="1"/>
+</event>
+
+<event>
+<if_timer_finished name="timer5"/>
+<if_variable name="fleet5" comparator="=" value="0"/>
+<if_variable name="stage" comparator="=" value="2"/>
+<set_variable name="stage" value="3"/>
+<set_variable name="fleet5" value="1"/>
+</event>
+
+<event>
+<if_timer_finished name="timer5"/>
+<if_variable name="fleet5" comparator="=" value="0"/>
+<if_variable name="stage" comparator="=" value="1"/>
+<set_variable name="stage" value="2"/>
+<set_variable name="fleet5" value="1"/>
+</event>
+
+<event>
+<if_timer_finished name="timer6"/>
+<if_variable name="fleet6" comparator="=" value="0"/>
+<set_variable name="fleet6" value="1"/>
+</event>
+
+<!-- First Wave of Attacks -->
+<!-- 5 small ships -->
+
+<event>
+<if_variable name="fleet1" comparator="=" value="1"/>
+
+<create type="enemy" raceKeys="Arvonian" name="1G11" hullKeys="fighter" x="10000" y="0" z="10000" angle="180" fleetnumber="1"/>
+<create type="enemy" raceKeys="Arvonian" name="1G12" hullKeys="fighter" x="10100" y="0" z="10000" angle="180" fleetnumber="1"/>
+<create type="enemy" raceKeys="Arvonian" name="1G13" hullKeys="fighter" x="10200" y="0" z="10000" angle="180" fleetnumber="1"/>
+<create type="enemy" raceKeys="Arvonian" name="1G14" hullKeys="fighter" x="10300" y="0" z="10000" angle="180" fleetnumber="1"/>
+<create type="enemy" raceKeys="Arvonian" name="1G15" hullKeys="fighter" x="10400" y="0" z="10000" angle="180" fleetnumber="1"/>
+
+<set_object_property name="1G11" throttle="100"/>
+<clear_ai name="1G11"/>
+<add_ai type="CHASE_STATION" name="1G11" targetName="ISC 1872"/>
+<add_ai type="CHASE_PLAYER" name="1G11" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="1G11"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="1G11"/>
+<add_ai type="FOLLOW_LEADER" name="1G11"/>
+<add_ai type="LEADER_LEADS" name="1G11"/>
+<set_object_property name="1G12" throttle="100"/>
+<clear_ai name="1G12"/>
+<add_ai type="CHASE_STATION" name="1G12" targetName="ISC 1872"/>
+<add_ai type="CHASE_PLAYER" name="1G12" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="1G12"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="1G12"/>
+<add_ai type="FOLLOW_LEADER" name="1G12"/>
+<add_ai type="LEADER_LEADS" name="1G12"/>
+<set_object_property name="1G13" throttle="100"/>
+<clear_ai name="1G13"/>
+<add_ai type="CHASE_STATION" name="1G13" targetName="ISC 1872"/>
+<add_ai type="CHASE_PLAYER" name="1G13" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="1G13"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="1G13"/>
+<add_ai type="FOLLOW_LEADER" name="1G13"/>
+<add_ai type="LEADER_LEADS" name="1G13"/>
+<set_object_property name="1G14" throttle="100"/>
+<clear_ai name="1G14"/>
+<add_ai type="CHASE_STATION" name="1G14" targetName="ISC 1872"/>
+<add_ai type="CHASE_PLAYER" name="1G14" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="1G14"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="1G14"/>
+<add_ai type="FOLLOW_LEADER" name="1G14"/>
+<add_ai type="LEADER_LEADS" name="1G14"/>
+<set_object_property name="1G15" throttle="100"/>
+<clear_ai name="1G15"/>
+<add_ai type="CHASE_STATION" name="1G15" targetName="ISC 1872"/>
+<add_ai type="CHASE_PLAYER" name="1G15" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="1G15"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="1G15"/>
+<add_ai type="FOLLOW_LEADER" name="1G15"/>
+<add_ai type="LEADER_LEADS" name="1G15"/>
+
+<set_variable name="fleet1" value="2"/>
+</event>
+
+<event>
+<if_variable name="fleet2" comparator="=" value="1"/>
+
+<create type="enemy" raceKeys="Arvonian" name="2G11" hullKeys="fighter" x="90000" y="0" z="10000" angle="180" fleetnumber="2"/>
+<create type="enemy" raceKeys="Arvonian" name="2G12" hullKeys="fighter" x="90100" y="0" z="10000" angle="180" fleetnumber="2"/>
+<create type="enemy" raceKeys="Arvonian" name="2G13" hullKeys="fighter" x="90200" y="0" z="10000" angle="180" fleetnumber="2"/>
+<create type="enemy" raceKeys="Arvonian" name="2G14" hullKeys="fighter" x="90300" y="0" z="10000" angle="180" fleetnumber="2"/>
+<create type="enemy" raceKeys="Arvonian" name="2G15" hullKeys="fighter" x="90400" y="0" z="10000" angle="180" fleetnumber="2"/>
+
+<set_object_property name="2G11" throttle="100"/>
+<clear_ai name="2G11"/>
+<add_ai type="CHASE_STATION" name="2G11" targetName="ISC 1831"/>
+<add_ai type="CHASE_PLAYER" name="2G11" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="2G11"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="2G11"/>
+<add_ai type="FOLLOW_LEADER" name="2G11"/>
+<add_ai type="LEADER_LEADS" name="2G11"/>
+<set_object_property name="2G12" throttle="100"/>
+<clear_ai name="2G12"/>
+<add_ai type="CHASE_STATION" name="2G12" targetName="ISC 1831"/>
+<add_ai type="CHASE_PLAYER" name="2G12" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="2G12"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="2G12"/>
+<add_ai type="FOLLOW_LEADER" name="2G12"/>
+<add_ai type="LEADER_LEADS" name="2G12"/>
+<set_object_property name="2G13" throttle="100"/>
+<clear_ai name="2G13"/>
+<add_ai type="CHASE_STATION" name="2G13" targetName="ISC 1831"/>
+<add_ai type="CHASE_PLAYER" name="2G13" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="2G13"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="2G13"/>
+<add_ai type="FOLLOW_LEADER" name="2G13"/>
+<add_ai type="LEADER_LEADS" name="2G13"/>
+<set_object_property name="2G14" throttle="100"/>
+<clear_ai name="2G14"/>
+<add_ai type="CHASE_STATION" name="2G14" targetName="ISC 1831"/>
+<add_ai type="CHASE_PLAYER" name="2G14" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="2G14"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="2G14"/>
+<add_ai type="FOLLOW_LEADER" name="2G14"/>
+<add_ai type="LEADER_LEADS" name="2G14"/>
+<set_object_property name="2G15" throttle="100"/>
+<clear_ai name="2G15"/>
+<add_ai type="CHASE_STATION" name="2G15" targetName="ISC 1831"/>
+<add_ai type="CHASE_PLAYER" name="2G15" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="2G15"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="2G15"/>
+<add_ai type="FOLLOW_LEADER" name="2G15"/>
+<add_ai type="LEADER_LEADS" name="2G15"/>
+
+<set_variable name="fleet2" value="2"/>
+</event>
+
+<event>
+<if_variable name="fleet3" comparator="=" value="1"/>
+
+<create type="enemy" raceKeys="Arvonian" name="3G11" hullKeys="fighter" x="30000" y="0" z="10000" angle="180" fleetnumber="3"/>
+<create type="enemy" raceKeys="Arvonian" name="3G12" hullKeys="fighter" x="30100" y="0" z="10000" angle="180" fleetnumber="3"/>
+<create type="enemy" raceKeys="Arvonian" name="3G13" hullKeys="fighter" x="30200" y="0" z="10000" angle="180" fleetnumber="3"/>
+<create type="enemy" raceKeys="Arvonian" name="3G14" hullKeys="fighter" x="30300" y="0" z="10000" angle="180" fleetnumber="3"/>
+<create type="enemy" raceKeys="Arvonian" name="3G15" hullKeys="fighter" x="30400" y="0" z="10000" angle="180" fleetnumber="3"/>
+
+<set_object_property name="3G11" throttle="100"/>
+<clear_ai name="3G11"/>
+<add_ai type="CHASE_STATION" name="3G11" targetName="ISC 1853-A"/>
+<add_ai type="CHASE_PLAYER" name="3G11" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="3G11"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="3G11"/>
+<add_ai type="FOLLOW_LEADER" name="3G11"/>
+<add_ai type="LEADER_LEADS" name="3G11"/>
+<set_object_property name="3G12" throttle="100"/>
+<clear_ai name="3G12"/>
+<add_ai type="CHASE_STATION" name="3G12" targetName="ISC 1853-A"/>
+<add_ai type="CHASE_PLAYER" name="3G12" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="3G12"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="3G12"/>
+<add_ai type="FOLLOW_LEADER" name="3G12"/>
+<add_ai type="LEADER_LEADS" name="3G12"/>
+<set_object_property name="3G13" throttle="100"/>
+<clear_ai name="3G13"/>
+<add_ai type="CHASE_STATION" name="3G13" targetName="ISC 1853-A"/>
+<add_ai type="CHASE_PLAYER" name="3G13" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="3G13"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="3G13"/>
+<add_ai type="FOLLOW_LEADER" name="3G13"/>
+<add_ai type="LEADER_LEADS" name="3G13"/>
+<set_object_property name="3G14" throttle="100"/>
+<clear_ai name="3G14"/>
+<add_ai type="CHASE_STATION" name="3G14" targetName="ISC 1853-A"/>
+<add_ai type="CHASE_PLAYER" name="3G14" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="3G14"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="3G14"/>
+<add_ai type="FOLLOW_LEADER" name="3G14"/>
+<add_ai type="LEADER_LEADS" name="3G14"/>
+<set_object_property name="3G15" throttle="100"/>
+<clear_ai name="3G15"/>
+<add_ai type="CHASE_STATION" name="3G15" targetName="ISC 1853-A"/>
+<add_ai type="CHASE_PLAYER" name="3G15" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="3G15"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="3G15"/>
+<add_ai type="FOLLOW_LEADER" name="3G15"/>
+<add_ai type="LEADER_LEADS" name="3G15"/>
+
+<set_variable name="fleet3" value="2"/>
+</event>
+
+<event>
+<if_variable name="fleet4" comparator="=" value="1"/>
+
+<create type="enemy" raceKeys="Arvonian" name="4G11" hullKeys="fighter" x="70000" y="0" z="10000" angle="180" fleetnumber="4"/>
+<create type="enemy" raceKeys="Arvonian" name="4G12" hullKeys="fighter" x="70100" y="0" z="10000" angle="180" fleetnumber="4"/>
+<create type="enemy" raceKeys="Arvonian" name="4G13" hullKeys="fighter" x="70200" y="0" z="10000" angle="180" fleetnumber="4"/>
+<create type="enemy" raceKeys="Arvonian" name="4G14" hullKeys="fighter" x="70300" y="0" z="10000" angle="180" fleetnumber="4"/>
+<create type="enemy" raceKeys="Arvonian" name="4G15" hullKeys="fighter" x="70400" y="0" z="10000" angle="180" fleetnumber="4"/>
+
+<set_object_property name="4G11" throttle="100"/>
+<clear_ai name="4G11"/>
+<add_ai type="CHASE_STATION" name="4G11" targetName="ISC 1846"/>
+<add_ai type="CHASE_PLAYER" name="4G11" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="4G11"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="4G11"/>
+<add_ai type="FOLLOW_LEADER" name="4G11"/>
+<add_ai type="LEADER_LEADS" name="4G11"/>
+<set_object_property name="4G12" throttle="100"/>
+<clear_ai name="4G12"/>
+<add_ai type="CHASE_STATION" name="4G12" targetName="ISC 1846"/>
+<add_ai type="CHASE_PLAYER" name="4G12" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="4G12"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="4G12"/>
+<add_ai type="FOLLOW_LEADER" name="4G12"/>
+<add_ai type="LEADER_LEADS" name="4G12"/>
+<set_object_property name="4G13" throttle="100"/>
+<clear_ai name="4G13"/>
+<add_ai type="CHASE_STATION" name="4G13" targetName="ISC 1846"/>
+<add_ai type="CHASE_PLAYER" name="4G13" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="4G13"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="4G13"/>
+<add_ai type="FOLLOW_LEADER" name="4G13"/>
+<add_ai type="LEADER_LEADS" name="4G13"/>
+<set_object_property name="4G14" throttle="100"/>
+<clear_ai name="4G14"/>
+<add_ai type="CHASE_STATION" name="4G14" targetName="ISC 1846"/>
+<add_ai type="CHASE_PLAYER" name="4G14" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="4G14"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="4G14"/>
+<add_ai type="FOLLOW_LEADER" name="4G14"/>
+<add_ai type="LEADER_LEADS" name="4G14"/>
+<set_object_property name="4G15" throttle="100"/>
+<clear_ai name="4G15"/>
+<add_ai type="CHASE_STATION" name="4G15" targetName="ISC 1846"/>
+<add_ai type="CHASE_PLAYER" name="4G15" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="4G15"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="4G15"/>
+<add_ai type="FOLLOW_LEADER" name="4G15"/>
+<add_ai type="LEADER_LEADS" name="4G15"/>
+
+<set_variable name="fleet4" value="2"/>
+</event>
+
+<event>
+<if_variable name="fleet5" comparator="=" value="1"/>
+
+<create type="enemy" raceKeys="Arvonian" name="5G11" hullKeys="fighter" x="50000" y="0" z="9500" angle="180" fleetnumber="5"/>
+<create type="enemy" raceKeys="Arvonian" name="5G12" hullKeys="fighter" x="50100" y="0" z="9500" angle="180" fleetnumber="5"/>
+<create type="enemy" raceKeys="Arvonian" name="5G13" hullKeys="fighter" x="50200" y="0" z="9500" angle="180" fleetnumber="5"/>
+<create type="enemy" raceKeys="Arvonian" name="5G14" hullKeys="fighter" x="50300" y="0" z="9500" angle="180" fleetnumber="5"/>
+<create type="enemy" raceKeys="Arvonian" name="5G15" hullKeys="fighter" x="50400" y="0" z="9500" angle="180" fleetnumber="5"/>
+
+<set_object_property name="5G11" throttle="100"/>
+<set_object_property name="5G12" throttle="100"/>
+<set_object_property name="5G13" throttle="100"/>
+<set_object_property name="5G14" throttle="100"/>
+<set_object_property name="5G15" throttle="100"/>
+
+<set_variable name="fleet5" value="2"/>
+</event>
+
+<!-- skip unneeded ships -->
+<event>
+<if_variable name="fleet1" comparator="=" value="2"/>
+<if_variable name="stage" comparator="<" value="2"/>
+<set_variable name="fleet1" value="4"/>
+</event>
+
+<event>
+<if_variable name="fleet2" comparator="=" value="2"/>
+<if_variable name="stage" comparator="<" value="2"/>
+<set_variable name="fleet2" value="4"/>
+</event>
+
+<event>
+<if_variable name="fleet2" comparator="=" value="2"/>
+<if_variable name="stage" comparator="<" value="2"/>
+<set_variable name="fleet2" value="4"/>
+</event>
+
+<event>
+<if_variable name="fleet3" comparator="=" value="2"/>
+<if_variable name="stage" comparator="<" value="2"/>
+<set_variable name="fleet3" value="4"/>
+</event>
+
+<event>
+<if_variable name="fleet4" comparator="=" value="2"/>
+<if_variable name="stage" comparator="<" value="2"/>
+<set_variable name="fleet4" value="4"/>
+</event>
+
+<event>
+<if_variable name="fleet5" comparator="=" value="2"/>
+<if_variable name="stage" comparator="<" value="2"/>
+<set_variable name="fleet5" value="4"/>
+</event>
+
+<!-- Second Wave of Attacks -->
+<!-- 5 small ships, 5 large ships -->
+
+<event>
+<if_variable name="fleet1" comparator="=" value="2"/>
+<if_variable name="stage" comparator=">" value="1"/>
+
+<create type="enemy" raceKeys="Torgoth" name="1G21" hullKeys="large" x="10000" y="0" z="9500" angle="180" fleetnumber="1"/>
+<create type="enemy" raceKeys="Torgoth" name="1G22" hullKeys="large" x="10100" y="0" z="9500" angle="180" fleetnumber="1"/>
+<create type="enemy" raceKeys="Torgoth" name="1G23" hullKeys="large" x="10200" y="0" z="9500" angle="180" fleetnumber="1"/>
+<create type="enemy" raceKeys="Torgoth" name="1G24" hullKeys="large" x="10300" y="0" z="9500" angle="180" fleetnumber="1"/>
+<create type="enemy" raceKeys="Torgoth" name="1G25" hullKeys="large" x="10400" y="0" z="9500" angle="180" fleetnumber="1"/>
+
+<set_object_property name="1G21" throttle="100"/>
+<clear_ai name="1G21"/>
+<add_ai type="CHASE_STATION" name="1G21" targetName="ISC 1872"/>
+<add_ai type="CHASE_PLAYER" name="1G21" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="1G21"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="1G21"/>
+<add_ai type="FOLLOW_LEADER" name="1G21"/>
+<add_ai type="LEADER_LEADS" name="1G21"/>
+<set_object_property name="1G22" throttle="100"/>
+<clear_ai name="1G22"/>
+<add_ai type="CHASE_STATION" name="1G22" targetName="ISC 1872"/>
+<add_ai type="CHASE_PLAYER" name="1G22" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="1G22"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="1G22"/>
+<add_ai type="FOLLOW_LEADER" name="1G22"/>
+<add_ai type="LEADER_LEADS" name="1G22"/>
+<set_object_property name="1G23" throttle="100"/>
+<clear_ai name="1G23"/>
+<add_ai type="CHASE_STATION" name="1G23" targetName="ISC 1872"/>
+<add_ai type="CHASE_PLAYER" name="1G23" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="1G23"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="1G23"/>
+<add_ai type="FOLLOW_LEADER" name="1G23"/>
+<add_ai type="LEADER_LEADS" name="1G23"/>
+<set_object_property name="1G24" throttle="100"/>
+<clear_ai name="1G24"/>
+<add_ai type="CHASE_STATION" name="1G24" targetName="ISC 1872"/>
+<add_ai type="CHASE_PLAYER" name="1G24" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="1G24"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="1G24"/>
+<add_ai type="FOLLOW_LEADER" name="1G24"/>
+<add_ai type="LEADER_LEADS" name="1G24"/>
+<set_object_property name="1G25" throttle="100"/>
+<clear_ai name="1G25"/>
+<add_ai type="CHASE_STATION" name="1G25" targetName="ISC 1872"/>
+<add_ai type="CHASE_PLAYER" name="1G25" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="1G25"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="1G25"/>
+<add_ai type="FOLLOW_LEADER" name="1G25"/>
+<add_ai type="LEADER_LEADS" name="1G25"/>
+
+<set_variable name="fleet1" value="3"/>
+</event>
+
+<event>
+<if_variable name="fleet2" comparator="=" value="2"/>
+<if_variable name="stage" comparator=">" value="1"/>
+
+<create type="enemy" raceKeys="Torgoth" name="2G21" hullKeys="large" x="90000" y="0" z="9500" angle="180" fleetnumber="2"/>
+<create type="enemy" raceKeys="Torgoth" name="2G22" hullKeys="large" x="90100" y="0" z="9500" angle="180" fleetnumber="2"/>
+<create type="enemy" raceKeys="Torgoth" name="2G23" hullKeys="large" x="90200" y="0" z="9500" angle="180" fleetnumber="2"/>
+<create type="enemy" raceKeys="Torgoth" name="2G24" hullKeys="large" x="90300" y="0" z="9500" angle="180" fleetnumber="2"/>
+<create type="enemy" raceKeys="Torgoth" name="2G25" hullKeys="large" x="90400" y="0" z="9500" angle="180" fleetnumber="2"/>
+
+<set_object_property name="2G21" throttle="100"/>
+<clear_ai name="2G21"/>
+<add_ai type="CHASE_STATION" name="2G21" targetName="ISC 1831"/>
+<add_ai type="CHASE_PLAYER" name="2G21" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="2G21"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="2G21"/>
+<add_ai type="FOLLOW_LEADER" name="2G21"/>
+<add_ai type="LEADER_LEADS" name="2G21"/>
+<set_object_property name="2G22" throttle="100"/>
+<clear_ai name="2G22"/>
+<add_ai type="CHASE_STATION" name="2G22" targetName="ISC 1831"/>
+<add_ai type="CHASE_PLAYER" name="2G22" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="2G22"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="2G22"/>
+<add_ai type="FOLLOW_LEADER" name="2G22"/>
+<add_ai type="LEADER_LEADS" name="2G22"/>
+<set_object_property name="2G23" throttle="100"/>
+<clear_ai name="2G23"/>
+<add_ai type="CHASE_STATION" name="2G23" targetName="ISC 1831"/>
+<add_ai type="CHASE_PLAYER" name="2G23" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="2G23"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="2G23"/>
+<add_ai type="FOLLOW_LEADER" name="2G23"/>
+<add_ai type="LEADER_LEADS" name="2G23"/>
+<set_object_property name="2G24" throttle="100"/>
+<clear_ai name="2G24"/>
+<add_ai type="CHASE_STATION" name="2G24" targetName="ISC 1831"/>
+<add_ai type="CHASE_PLAYER" name="2G24" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="2G24"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="2G24"/>
+<add_ai type="FOLLOW_LEADER" name="2G24"/>
+<add_ai type="LEADER_LEADS" name="2G24"/>
+<set_object_property name="2G25" throttle="100"/>
+<clear_ai name="2G25"/>
+<add_ai type="CHASE_STATION" name="2G25" targetName="ISC 1831"/>
+<add_ai type="CHASE_PLAYER" name="2G25" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="2G25"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="2G25"/>
+<add_ai type="FOLLOW_LEADER" name="2G25"/>
+<add_ai type="LEADER_LEADS" name="2G25"/>
+
+<set_variable name="fleet2" value="3"/>
+</event>
+
+<event>
+<if_variable name="fleet3" comparator="=" value="2"/>
+<if_variable name="stage" comparator=">" value="1"/>
+
+<create type="enemy" raceKeys="Torgoth" name="3G21" hullKeys="large" x="30000" y="0" z="9500" angle="180" fleetnumber="3"/>
+<create type="enemy" raceKeys="Torgoth" name="3G22" hullKeys="large" x="30100" y="0" z="9500" angle="180" fleetnumber="3"/>
+<create type="enemy" raceKeys="Torgoth" name="3G23" hullKeys="large" x="30200" y="0" z="9500" angle="180" fleetnumber="3"/>
+<create type="enemy" raceKeys="Torgoth" name="3G24" hullKeys="large" x="30300" y="0" z="9500" angle="180" fleetnumber="3"/>
+<create type="enemy" raceKeys="Torgoth" name="3G25" hullKeys="large" x="30400" y="0" z="9500" angle="180" fleetnumber="3"/>
+
+<set_object_property name="3G21" throttle="100"/>
+<clear_ai name="3G21"/>
+<add_ai type="CHASE_STATION" name="3G21" targetName="ISC 1853-A"/>
+<add_ai type="CHASE_PLAYER" name="3G21" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="3G21"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="3G21"/>
+<add_ai type="FOLLOW_LEADER" name="3G21"/>
+<add_ai type="LEADER_LEADS" name="3G21"/>
+<set_object_property name="3G22" throttle="100"/>
+<clear_ai name="3G22"/>
+<add_ai type="CHASE_STATION" name="3G22" targetName="ISC 1853-A"/>
+<add_ai type="CHASE_PLAYER" name="3G22" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="3G22"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="3G22"/>
+<add_ai type="FOLLOW_LEADER" name="3G22"/>
+<add_ai type="LEADER_LEADS" name="3G22"/>
+<set_object_property name="3G23" throttle="100"/>
+<clear_ai name="3G23"/>
+<add_ai type="CHASE_STATION" name="3G23" targetName="ISC 1853-A"/>
+<add_ai type="CHASE_PLAYER" name="3G23" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="3G23"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="3G23"/>
+<add_ai type="FOLLOW_LEADER" name="3G23"/>
+<add_ai type="LEADER_LEADS" name="3G23"/>
+<set_object_property name="3G24" throttle="100"/>
+<clear_ai name="3G24"/>
+<add_ai type="CHASE_STATION" name="3G24" targetName="ISC 1853-A"/>
+<add_ai type="CHASE_PLAYER" name="3G24" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="3G24"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="3G24"/>
+<add_ai type="FOLLOW_LEADER" name="3G24"/>
+<add_ai type="LEADER_LEADS" name="3G24"/>
+<set_object_property name="3G25" throttle="100"/>
+<clear_ai name="3G25"/>
+<add_ai type="CHASE_STATION" name="3G25" targetName="ISC 1853-A"/>
+<add_ai type="CHASE_PLAYER" name="3G25" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="3G25"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="3G25"/>
+<add_ai type="FOLLOW_LEADER" name="3G25"/>
+<add_ai type="LEADER_LEADS" name="3G25"/>
+
+<set_variable name="fleet3" value="3"/>
+</event>
+
+<event>
+<if_variable name="fleet4" comparator="=" value="2"/>
+<if_variable name="stage" comparator=">" value="1"/>
+
+<create type="enemy" raceKeys="Torgoth" name="4G21" hullKeys="large" x="70000" y="0" z="9500" angle="180" fleetnumber="4"/>
+<create type="enemy" raceKeys="Torgoth" name="4G22" hullKeys="large" x="70100" y="0" z="9500" angle="180" fleetnumber="4"/>
+<create type="enemy" raceKeys="Torgoth" name="4G23" hullKeys="large" x="70200" y="0" z="9500" angle="180" fleetnumber="4"/>
+<create type="enemy" raceKeys="Torgoth" name="4G24" hullKeys="large" x="70300" y="0" z="9500" angle="180" fleetnumber="4"/>
+<create type="enemy" raceKeys="Torgoth" name="4G25" hullKeys="large" x="70400" y="0" z="9500" angle="180" fleetnumber="4"/>
+
+<set_object_property name="4G21" throttle="100"/>
+<clear_ai name="4G21"/>
+<add_ai type="CHASE_STATION" name="4G21" targetName="ISC 1846"/>
+<add_ai type="CHASE_PLAYER" name="4G21" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="4G21"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="4G21"/>
+<add_ai type="FOLLOW_LEADER" name="4G21"/>
+<add_ai type="LEADER_LEADS" name="4G21"/>
+<set_object_property name="4G22" throttle="100"/>
+<clear_ai name="4G22"/>
+<add_ai type="CHASE_STATION" name="4G22" targetName="ISC 1846"/>
+<add_ai type="CHASE_PLAYER" name="4G22" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="4G22"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="4G22"/>
+<add_ai type="FOLLOW_LEADER" name="4G22"/>
+<add_ai type="LEADER_LEADS" name="4G22"/>
+<set_object_property name="4G23" throttle="100"/>
+<clear_ai name="4G23"/>
+<add_ai type="CHASE_STATION" name="4G23" targetName="ISC 1846"/>
+<add_ai type="CHASE_PLAYER" name="4G23" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="4G23"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="4G23"/>
+<add_ai type="FOLLOW_LEADER" name="4G23"/>
+<add_ai type="LEADER_LEADS" name="4G23"/>
+<set_object_property name="4G24" throttle="100"/>
+<clear_ai name="4G24"/>
+<add_ai type="CHASE_STATION" name="4G24" targetName="ISC 1846"/>
+<add_ai type="CHASE_PLAYER" name="4G24" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="4G24"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="4G24"/>
+<add_ai type="FOLLOW_LEADER" name="4G24"/>
+<add_ai type="LEADER_LEADS" name="4G24"/>
+<set_object_property name="4G25" throttle="100"/>
+<clear_ai name="4G25"/>
+<add_ai type="CHASE_STATION" name="4G25" targetName="ISC 1846"/>
+<add_ai type="CHASE_PLAYER" name="4G25" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="4G25"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="4G25"/>
+<add_ai type="FOLLOW_LEADER" name="4G25"/>
+<add_ai type="LEADER_LEADS" name="4G25"/>
+
+<set_variable name="fleet4" value="3"/>
+</event>
+
+<event>
+<if_variable name="fleet5" comparator="=" value="2"/>
+<if_variable name="stage" comparator=">" value="1"/>
+
+<create type="enemy" raceKeys="Torgoth" name="5G21" hullKeys="large" x="50000" y="0" z="9500" angle="180" fleetnumber="5"/>
+<create type="enemy" raceKeys="Torgoth" name="5G22" hullKeys="large" x="50100" y="0" z="9500" angle="180" fleetnumber="5"/>
+<create type="enemy" raceKeys="Torgoth" name="5G23" hullKeys="large" x="50200" y="0" z="9500" angle="180" fleetnumber="5"/>
+<create type="enemy" raceKeys="Torgoth" name="5G24" hullKeys="large" x="50300" y="0" z="9500" angle="180" fleetnumber="5"/>
+<create type="enemy" raceKeys="Torgoth" name="5G25" hullKeys="large" x="50400" y="0" z="9500" angle="180" fleetnumber="5"/>
+
+<set_object_property name="5G21" throttle="100"/>
+<set_object_property name="5G22" throttle="100"/>
+<set_object_property name="5G23" throttle="100"/>
+<set_object_property name="5G24" throttle="100"/>
+<set_object_property name="5G25" throttle="100"/>
+
+<set_variable name="fleet5" value="3"/>
+</event>
+
+<!-- skip unneeded ships -->
+<event>
+<if_variable name="fleet1" comparator="=" value="3"/>
+<if_variable name="stage" comparator="<" value="3"/>
+<set_variable name="fleet1" value="4"/>
+</event>
+
+<event>
+<if_variable name="fleet2" comparator="=" value="3"/>
+<if_variable name="stage" comparator="<" value="3"/>
+<set_variable name="fleet2" value="4"/>
+</event>
+
+<event>
+<if_variable name="fleet2" comparator="=" value="3"/>
+<if_variable name="stage" comparator="<" value="3"/>
+<set_variable name="fleet2" value="4"/>
+</event>
+
+<event>
+<if_variable name="fleet3" comparator="=" value="3"/>
+<if_variable name="stage" comparator="<" value="3"/>
+<set_variable name="fleet3" value="4"/>
+</event>
+
+<event>
+<if_variable name="fleet4" comparator="=" value="3"/>
+<if_variable name="stage" comparator="<" value="3"/>
+<set_variable name="fleet4" value="4"/>
+</event>
+
+<event>
+<if_variable name="fleet5" comparator="=" value="3"/>
+<if_variable name="stage" comparator="<" value="3"/>
+<set_variable name="fleet5" value="4"/>
+</event>
+
+<!-- Third Wave of Attacks -->
+<!-- 5 small ships, 5 large ships, 5 carriers ships -->
+
+<event>
+<if_variable name="fleet1" comparator="=" value="3"/>
+<if_variable name="stage" comparator="=" value="3"/>
+
+<create type="enemy" raceKeys="Arvonian" name="1G31" hullKeys="Carrier" x="10000" y="0" z="9000" angle="180" fleetnumber="1"/>
+<create type="enemy" raceKeys="Arvonian" name="1G32" hullKeys="Carrier" x="10100" y="0" z="9000" angle="180" fleetnumber="1"/>
+<create type="enemy" raceKeys="Arvonian" name="1G33" hullKeys="Carrier" x="10200" y="0" z="9000" angle="180" fleetnumber="1"/>
+<create type="enemy" raceKeys="Arvonian" name="1G34" hullKeys="Carrier" x="10300" y="0" z="9000" angle="180" fleetnumber="1"/>
+<create type="enemy" raceKeys="Arvonian" name="1G35" hullKeys="Carrier" x="10400" y="0" z="9000" angle="180" fleetnumber="1"/>
+
+<set_object_property name="1G31" throttle="100"/>
+<clear_ai name="1G31"/>
+<add_ai type="CHASE_STATION" name="1G31" targetName="ISC 1872"/>
+<add_ai type="CHASE_PLAYER" name="1G31" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="1G31"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="1G31"/>
+<add_ai type="FOLLOW_LEADER" name="1G31"/>
+<add_ai type="LEADER_LEADS" name="1G31"/>
+<set_object_property name="1G32" throttle="100"/>
+<clear_ai name="1G32"/>
+<add_ai type="CHASE_STATION" name="1G32" targetName="ISC 1872"/>
+<add_ai type="CHASE_PLAYER" name="1G32" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="1G32"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="1G32"/>
+<add_ai type="FOLLOW_LEADER" name="1G32"/>
+<add_ai type="LEADER_LEADS" name="1G32"/>
+<set_object_property name="1G33" throttle="100"/>
+<clear_ai name="1G33"/>
+<add_ai type="CHASE_STATION" name="1G33" targetName="ISC 1872"/>
+<add_ai type="CHASE_PLAYER" name="1G33" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="1G33"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="1G33"/>
+<add_ai type="FOLLOW_LEADER" name="1G33"/>
+<add_ai type="LEADER_LEADS" name="1G33"/>
+<set_object_property name="1G34" throttle="100"/>
+<clear_ai name="1G34"/>
+<add_ai type="CHASE_STATION" name="1G34" targetName="ISC 1872"/>
+<add_ai type="CHASE_PLAYER" name="1G34" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="1G34"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="1G34"/>
+<add_ai type="FOLLOW_LEADER" name="1G34"/>
+<add_ai type="LEADER_LEADS" name="1G34"/>
+<set_object_property name="1G35" throttle="100"/>
+<clear_ai name="1G35"/>
+<add_ai type="CHASE_STATION" name="1G35" targetName="ISC 1872"/>
+<add_ai type="CHASE_PLAYER" name="1G35" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="1G35"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="1G35"/>
+<add_ai type="FOLLOW_LEADER" name="1G35"/>
+<add_ai type="LEADER_LEADS" name="1G35"/>
+
+<set_variable name="fleet1" value="4"/>
+</event>
+
+<event>
+<if_variable name="fleet2" comparator="=" value="3"/>
+<if_variable name="stage" comparator="=" value="3"/>
+
+<create type="enemy" raceKeys="Arvonian" name="2G31" hullKeys="Carrier" x="90000" y="0" z="9000" angle="180" fleetnumber="2"/>
+<create type="enemy" raceKeys="Arvonian" name="2G32" hullKeys="Carrier" x="90100" y="0" z="9000" angle="180" fleetnumber="2"/>
+<create type="enemy" raceKeys="Arvonian" name="2G33" hullKeys="Carrier" x="90200" y="0" z="9000" angle="180" fleetnumber="2"/>
+<create type="enemy" raceKeys="Arvonian" name="2G34" hullKeys="Carrier" x="90300" y="0" z="9000" angle="180" fleetnumber="2"/>
+<create type="enemy" raceKeys="Arvonian" name="2G35" hullKeys="Carrier" x="90400" y="0" z="9000" angle="180" fleetnumber="2"/>
+
+<set_object_property name="2G31" throttle="100"/>
+<clear_ai name="2G31"/>
+<add_ai type="CHASE_STATION" name="2G31" targetName="ISC 1831"/>
+<add_ai type="CHASE_PLAYER" name="2G31" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="2G31"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="2G31"/>
+<add_ai type="FOLLOW_LEADER" name="2G31"/>
+<add_ai type="LEADER_LEADS" name="2G31"/>
+<set_object_property name="2G32" throttle="100"/>
+<clear_ai name="2G32"/>
+<add_ai type="CHASE_STATION" name="2G32" targetName="ISC 1831"/>
+<add_ai type="CHASE_PLAYER" name="2G32" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="2G32"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="2G32"/>
+<add_ai type="FOLLOW_LEADER" name="2G32"/>
+<add_ai type="LEADER_LEADS" name="2G32"/>
+<set_object_property name="2G33" throttle="100"/>
+<clear_ai name="2G33"/>
+<add_ai type="CHASE_STATION" name="2G33" targetName="ISC 1831"/>
+<add_ai type="CHASE_PLAYER" name="2G33" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="2G33"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="2G33"/>
+<add_ai type="FOLLOW_LEADER" name="2G33"/>
+<add_ai type="LEADER_LEADS" name="2G33"/>
+<set_object_property name="2G34" throttle="100"/>
+<clear_ai name="2G34"/>
+<add_ai type="CHASE_STATION" name="2G34" targetName="ISC 1831"/>
+<add_ai type="CHASE_PLAYER" name="2G34" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="2G34"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="2G34"/>
+<add_ai type="FOLLOW_LEADER" name="2G34"/>
+<add_ai type="LEADER_LEADS" name="2G34"/>
+<set_object_property name="2G35" throttle="100"/>
+<clear_ai name="2G35"/>
+<add_ai type="CHASE_STATION" name="2G35" targetName="ISC 1831"/>
+<add_ai type="CHASE_PLAYER" name="2G35" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="2G35"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="2G35"/>
+<add_ai type="FOLLOW_LEADER" name="2G35"/>
+<add_ai type="LEADER_LEADS" name="2G35"/>
+
+<set_variable name="fleet2" value="4"/>
+</event>
+
+<event>
+<if_variable name="fleet3" comparator="=" value="3"/>
+<if_variable name="stage" comparator="=" value="3"/>
+
+<create type="enemy" raceKeys="Arvonian" name="3G31" hullKeys="Carrier" x="30000" y="0" z="9000" angle="180" fleetnumber="3"/>
+<create type="enemy" raceKeys="Arvonian" name="3G32" hullKeys="Carrier" x="30100" y="0" z="9000" angle="180" fleetnumber="3"/>
+<create type="enemy" raceKeys="Arvonian" name="3G33" hullKeys="Carrier" x="30200" y="0" z="9000" angle="180" fleetnumber="3"/>
+<create type="enemy" raceKeys="Arvonian" name="3G34" hullKeys="Carrier" x="30300" y="0" z="9000" angle="180" fleetnumber="3"/>
+<create type="enemy" raceKeys="Arvonian" name="3G35" hullKeys="Carrier" x="30400" y="0" z="9000" angle="180" fleetnumber="3"/>
+
+<set_object_property name="3G31" throttle="100"/>
+<clear_ai name="3G31"/>
+<add_ai type="CHASE_STATION" name="3G31" targetName="ISC 1853-A"/>
+<add_ai type="CHASE_PLAYER" name="3G31" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="3G31"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="3G31"/>
+<add_ai type="FOLLOW_LEADER" name="3G31"/>
+<add_ai type="LEADER_LEADS" name="3G31"/>
+<set_object_property name="3G32" throttle="100"/>
+<clear_ai name="3G32"/>
+<add_ai type="CHASE_STATION" name="3G32" targetName="ISC 1853-A"/>
+<add_ai type="CHASE_PLAYER" name="3G32" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="3G32"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="3G32"/>
+<add_ai type="FOLLOW_LEADER" name="3G32"/>
+<add_ai type="LEADER_LEADS" name="3G32"/>
+<set_object_property name="3G33" throttle="100"/>
+<clear_ai name="3G33"/>
+<add_ai type="CHASE_STATION" name="3G33" targetName="ISC 1853-A"/>
+<add_ai type="CHASE_PLAYER" name="3G33" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="3G33"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="3G33"/>
+<add_ai type="FOLLOW_LEADER" name="3G33"/>
+<add_ai type="LEADER_LEADS" name="3G33"/>
+<set_object_property name="3G34" throttle="100"/>
+<clear_ai name="3G34"/>
+<add_ai type="CHASE_STATION" name="3G34" targetName="ISC 1853-A"/>
+<add_ai type="CHASE_PLAYER" name="3G34" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="3G34"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="3G34"/>
+<add_ai type="FOLLOW_LEADER" name="3G34"/>
+<add_ai type="LEADER_LEADS" name="3G34"/>
+<set_object_property name="3G35" throttle="100"/>
+<clear_ai name="3G35"/>
+<add_ai type="CHASE_STATION" name="3G35" targetName="ISC 1853-A"/>
+<add_ai type="CHASE_PLAYER" name="3G35" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="3G35"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="3G35"/>
+<add_ai type="FOLLOW_LEADER" name="3G35"/>
+<add_ai type="LEADER_LEADS" name="3G35"/>
+
+<set_variable name="fleet3" value="4"/>
+</event>
+
+<event>
+<if_variable name="fleet4" comparator="=" value="3"/>
+<if_variable name="stage" comparator="=" value="3"/>
+
+<create type="enemy" raceKeys="Arvonian" name="4G31" hullKeys="Carrier" x="70000" y="0" z="9000" angle="180" fleetnumber="4"/>
+<create type="enemy" raceKeys="Arvonian" name="4G32" hullKeys="Carrier" x="70100" y="0" z="9000" angle="180" fleetnumber="4"/>
+<create type="enemy" raceKeys="Arvonian" name="4G33" hullKeys="Carrier" x="70200" y="0" z="9000" angle="180" fleetnumber="4"/>
+<create type="enemy" raceKeys="Arvonian" name="4G34" hullKeys="Carrier" x="70300" y="0" z="9000" angle="180" fleetnumber="4"/>
+<create type="enemy" raceKeys="Arvonian" name="4G35" hullKeys="Carrier" x="70400" y="0" z="9000" angle="180" fleetnumber="4"/>
+
+<set_object_property name="4G31" throttle="100"/>
+<clear_ai name="4G31"/>
+<add_ai type="CHASE_STATION" name="4G31" targetName="ISC 1846"/>
+<add_ai type="CHASE_PLAYER" name="4G31" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="4G31"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="4G31"/>
+<add_ai type="FOLLOW_LEADER" name="4G31"/>
+<add_ai type="LEADER_LEADS" name="4G31"/>
+<set_object_property name="4G32" throttle="100"/>
+<clear_ai name="4G32"/>
+<add_ai type="CHASE_STATION" name="4G32" targetName="ISC 1846"/>
+<add_ai type="CHASE_PLAYER" name="4G32" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="4G32"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="4G32"/>
+<add_ai type="FOLLOW_LEADER" name="4G32"/>
+<add_ai type="LEADER_LEADS" name="4G32"/>
+<set_object_property name="4G33" throttle="100"/>
+<clear_ai name="4G33"/>
+<add_ai type="CHASE_STATION" name="4G33" targetName="ISC 1846"/>
+<add_ai type="CHASE_PLAYER" name="4G33" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="4G33"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="4G33"/>
+<add_ai type="FOLLOW_LEADER" name="4G33"/>
+<add_ai type="LEADER_LEADS" name="4G33"/>
+<set_object_property name="4G34" throttle="100"/>
+<clear_ai name="4G34"/>
+<add_ai type="CHASE_STATION" name="4G34" targetName="ISC 1846"/>
+<add_ai type="CHASE_PLAYER" name="4G34" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="4G34"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="4G34"/>
+<add_ai type="FOLLOW_LEADER" name="4G34"/>
+<add_ai type="LEADER_LEADS" name="4G34"/>
+<set_object_property name="4G35" throttle="100"/>
+<clear_ai name="4G35"/>
+<add_ai type="CHASE_STATION" name="4G35" targetName="ISC 1846"/>
+<add_ai type="CHASE_PLAYER" name="4G35" value1="5000" value2="3000"/>
+<add_ai type="CHASE_ANGER" name="4G35"/>
+<add_ai type="TRY_TO_BECOME_LEADER" name="4G35"/>
+<add_ai type="FOLLOW_LEADER" name="4G35"/>
+<add_ai type="LEADER_LEADS" name="4G35"/>
+
+<set_variable name="fleet4" value="4"/>
+</event>
+
+<event>
+<if_variable name="fleet5" comparator="=" value="3"/>
+<if_variable name="stage" comparator="=" value="3"/>
+
+<create type="enemy" raceKeys="Arvonian" name="5G31" hullKeys="Carrier" x="50000" y="0" z="9000" angle="180" fleetnumber="5"/>
+<create type="enemy" raceKeys="Arvonian" name="5G32" hullKeys="Carrier" x="50100" y="0" z="9000" angle="180" fleetnumber="5"/>
+<create type="enemy" raceKeys="Arvonian" name="5G33" hullKeys="Carrier" x="50200" y="0" z="9000" angle="180" fleetnumber="5"/>
+<create type="enemy" raceKeys="Arvonian" name="5G34" hullKeys="Carrier" x="50300" y="0" z="9000" angle="180" fleetnumber="5"/>
+<create type="enemy" raceKeys="Arvonian" name="5G35" hullKeys="Carrier" x="50400" y="0" z="9000" angle="180" fleetnumber="5"/>
+
+<set_object_property name="5G31" throttle="100"/>
+<set_object_property name="5G32" throttle="100"/>
+<set_object_property name="5G33" throttle="100"/>
+<set_object_property name="5G34" throttle="100"/>
+<set_object_property name="5G35" throttle="100"/>
+
+<set_variable name="fleet5" value="4"/>
+</event>
+
+<!-- Reinforcements for UAS Potato -->
+
+<event>
+<if_variable name="fleet6" comparator="=" value="1"/>
+
+<create type="neutral" raceKeys="friendly" hullKeys="Destroyer" x="48000" y="0" z="89500" name="UAS Guest" fleetnumber="6"/>
+<create type="neutral" raceKeys="friendly" hullKeys="Destroyer" x="52000" y="0" z="89500" name="UAS Member" fleetnumber="6"/>
+<create type="neutral" raceKeys="friendly" hullKeys="Destroyer" x="49000" y="0" z="89500" name="UAS Keyholder" fleetnumber="6"/>
+<create type="neutral" raceKeys="friendly" hullKeys="Destroyer" x="51000" y="0" z="89500" name="UAS Board" fleetnumber="6"/>
+<create type="neutral" raceKeys="friendly" hullKeys="Destroyer" x="50000" y="0" z="89500" name="UAS President" fleetnumber="6"/>
+
+<set_variable name="fleet6" value="2"/>
+</event>
+
+<!-- Check for empty fleets -->
+
+<event>
+<if_variable name="fleet1" comparator=">" value="0"/>
+<if_fleet_count fleetnumber="1" comparator="=" value="0"/>
+<set_timer name="timer1" seconds="300"/>
+<set_variable name="fleet1" value="0"/>
+</event>
+
+<event>
+<if_variable name="fleet2" comparator=">" value="0"/>
+<if_fleet_count fleetnumber="2" comparator="=" value="0"/>
+<set_timer name="timer2" seconds="300"/>
+<set_variable name="fleet2" value="0"/>
+</event>
+
+<event>
+<if_variable name="fleet3" comparator=">" value="0"/>
+<if_fleet_count fleetnumber="3" comparator="=" value="0"/>
+<set_timer name="timer3" seconds="300"/>
+<set_variable name="fleet3" value="0"/>
+</event>
+
+<event>
+<if_variable name="fleet4" comparator=">" value="0"/>
+<if_fleet_count fleetnumber="4" comparator="=" value="0"/>
+<set_timer name="timer4" seconds="300"/>
+<set_variable name="fleet4" value="0"/>
+</event>
+
+<event>
+<if_variable name="fleet5" comparator=">" value="0"/>
+<if_fleet_count fleetnumber="5" comparator="=" value="0"/>
+<set_timer name="timer5" seconds="300"/>
+<set_variable name="fleet5" value="0"/>
+</event>
+
+<event>
+<if_variable name="fleet6" comparator=">" value="0"/>
+<if_fleet_count fleetnumber="6" comparator="=" value="0"/>
+<set_timer name="timer6" seconds="300"/>
+<set_variable name="fleet6" value="0"/>
+</event>
+
+<!-- Check for Fail Scenario -->
+
+<event>
+<if_not_exists name="UAS Potato"/>
+<destroy name="UAS Guest"/>
+<destroy name="UAS Member"/>
+<destroy name="UAS Keyholder"/>
+<destroy name="UAS Board"/>
+<destroy name="UAS President"/>
+<destroy name="ISC 1831"/>
+<destroy name="ISC 1846"/>
+<destroy name="ISC 1853-A"/>
+<destroy name="ISC 1872"/>
+
+<big_message title="MISSION FAILED" subtitle1="UAS Potato was destroyed"/>
+<end_mission/>
+</event>
+
+</mission>
